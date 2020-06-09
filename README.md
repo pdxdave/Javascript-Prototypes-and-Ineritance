@@ -39,7 +39,7 @@ Animal.prototype.sleep = function(length){
 }
 Animal.prototype.play = function(length){
   console.log(`${this.name} is playing.`)
-  this.energy += length
+  this.energy -= length
 }
 
 const leo = Animal('Leo', 5);
@@ -67,7 +67,7 @@ Animal.prototype.sleep = function(length){
 }
 Animal.prototype.play = function(length){
   console.log(`${this.name} is playing.`)
-  this.energy += length
+  this.energy -= length
 }
 
 const leo = new Animal('Leo', 5)
@@ -75,3 +75,35 @@ const leo = new Animal('Leo', 5)
 console.log(leo.play(5)) // "leo is playing"
 ```
 
+
+#### Prototypes - a third pass
+This will use the ES6 Class.  This is an even better solution than the two above.
+
+```
+class Animal {
+    constructor(name, energy){
+        this.name = name;
+        this.energy = energy
+    }
+    
+    eat(amount){
+       console.log(`${this.name} is eating.`)
+       this.energy += amount
+    }
+    
+    sleep(length){
+       console.log(`${this.name} is sleeping.`)
+       this.sleep += length
+    }
+    
+    play(length){
+      console.log(`${this.name} is playing.`)
+      this.play -= length
+    }
+    
+  }
+  
+  const leo = new Animal('Leo', 5)
+  console.log(leo.eat()) // leo is eating
+
+```
