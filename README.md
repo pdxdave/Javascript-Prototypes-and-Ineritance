@@ -107,3 +107,49 @@ class Animal {
   console.log(leo.eat()) // leo is eating
 
 ```
+
+#### Inheritance ES5 version
+```
+function Animal(name, energy) {
+    this.name = name
+    this.energy = energy
+}
+
+Animal.prototype.eat = function(amount){
+    console.log(`${this.name} is eating`)
+    this.energy += amount;
+}
+
+Animal.prototype.sleep = function(length){
+    console.log(`${this.name} is sleeping`)
+    this.energy += length;
+}
+
+Animal.prototype.play = function(length){
+    console.log(`${this.name} is playing`)
+    this.energy += length;
+}
+
+// a Dog subclass
+function Dog(name, energy, breed) {
+    // inherit name and energy from Animal using call
+    Animal.call(this, name, energy)
+    // create a unique property to the instance
+    this.breed = breed
+}
+
+// make sure that Dog is equal to the Animal
+Dog.prototype = Object.create(Animal.prototype)
+// reset constructor to be Dog
+Dog.prototype.constructor = Dog;
+
+// add another method to the Dog prototype
+Dog.prototype.bark = function() {
+    console.log('Woof Woof')
+    this.energy -= .1
+}
+
+
+const fido = new Dog('Fido', 10, 'Rottweiler')
+console.log(fido.play(5))
+```
