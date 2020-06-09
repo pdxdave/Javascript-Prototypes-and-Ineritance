@@ -17,7 +17,7 @@ child.age = 5
 console.log(child.age) // 5
 ```
 
-#### Prototypes
+#### Prototypes - a first pass
 In its most simple form, a prototype is property on a function. More specifically, it's a property on a function that points to an object.  So a prototype is a property that every function in JS has. It allows us to share methods across all instances of a function.
 
 ```
@@ -46,3 +46,9 @@ const leo = Animal('Leo', 5);
 
 console.log(leo.play(5)) // "leo is playing"
 ```
+
+
+#### Prototypes - a second pass
+This is a better solution than the one above.  This will use 'new' so we can remove the Object.create() and don't need to return the animal.
+
+
