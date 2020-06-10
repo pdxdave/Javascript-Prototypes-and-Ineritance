@@ -158,6 +158,7 @@ console.log(fido.play(5))
 This is much simpler than the ES5 version.
 
 ```
+
 class Animal {
     constructor(name, energy){
         this.name = name;
@@ -170,12 +171,12 @@ class Animal {
     }
 
     sleep(length) {
-        console.log(`${this.name} is eating`);
+        console.log(`${this.name} is sleeping`);
         this.energy += length
     }
 
     play(length) {
-        console.log(`${this.name} is eating`);
+        console.log(`${this.name} is playing`);
         this.energy += length
     }
 }
@@ -194,5 +195,8 @@ class Dog extends Animal{
 
 const leo = new Dog('Leo', 7, "Doberman")
 console.log(leo)
-console.log(leo.bark())
+leo.sleep()
+leo.eat()
+leo.play()
+leo.bark()
 ```
