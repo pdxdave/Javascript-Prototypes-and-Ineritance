@@ -153,3 +153,46 @@ Dog.prototype.bark = function() {
 const fido = new Dog('Fido', 10, 'Rottweiler')
 console.log(fido.play(5))
 ```
+
+#### Inheritance ES6 version
+This is much simpler than the ES5 version.
+
+```
+class Animal {
+    constructor(name, energy){
+        this.name = name;
+        this.energy = energy
+    }
+
+    eat(amount) {
+        console.log(`${this.name} is eating`);
+        this.energy += amount
+    }
+
+    sleep(length) {
+        console.log(`${this.name} is eating`);
+        this.energy += length
+    }
+
+    play(length) {
+        console.log(`${this.name} is eating`);
+        this.energy += length
+    }
+}
+
+class Dog extends Animal{
+    constructor(name, energy, breed){
+        super(name, energy)
+        this.breed = breed;
+    }
+
+    bark(){
+        console.log('Woof woof')
+        this.energy -= .1
+    }
+}
+
+const leo = new Dog('Leo', 7, "Doberman")
+console.log(leo)
+console.log(leo.bark())
+```
